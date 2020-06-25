@@ -1,0 +1,10 @@
+#!/bin/bash
+
+git merge $1 && git branch -d $1
+
+
+_git_smerge ()
+{
+	# you can return anything here for the autocompletion for example all the branches
+	__gitcomp_nl "$(__git_refs)"
+}
