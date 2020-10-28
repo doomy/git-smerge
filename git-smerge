@@ -1,3 +1,17 @@
 #!/bin/bash
 
-git merge $1 && git branch -d $1
+if [ -z "$1" ]
+  then
+    CURRENT_BRANCH=$(git branch --show-current);
+    if [ "$CURRENT_BRANCH" == "master" ]
+      then
+        echo "Currently on branch master. Pleace specify name of the branch to be merged or checkout onto that branch.";
+      else
+        git checkout master
+        git merge "$CURRENT_BRANCH" && git branch -d "$CURRENT_BRANCH"
+    fi
+  else
+    git merge $1 && git branch -d $1
+fi
+
+
