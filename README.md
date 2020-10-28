@@ -25,8 +25,16 @@ _git_smerge ()
 
 ## Usage
 
+### a) while on a branch to be merged to master:
+```bash
+git smerge
+```
+Merges current branch to master and soft deletes it after the merge.
+
+
+### b) specifying the branch in an argument
 ```bash
 git smerge <branch_name>
 ```
 
-Merges a branch into current working branch and deletes it if successful.
+Merges the specified branch into current working branch and soft deletes it if successful.
